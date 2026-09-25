@@ -1,18 +1,57 @@
-import express from 'express';
-import cors from 'cors';
-import morgan from 'morgan';
-import { connectDatabase } from './config/database';
+import 'dotenv/config';
+
+import {
+  connectDatabase
+} from './config/database.js';
+
+import {
+  MongooseEmployeeRepository
+} from './infrastructure/repositories/MongooseEmployeeRepository.js';
+
+import {
+  EmployeeController
+} from './controllers/empleados.controllers.js';
+
+import {
+  createApp
+} from './app.js';
 
 
- 
-const app=express(); 
-const port = 3000 
-connectDatabase(); // Conexión a la base de datos
-app.use(morgan('dev'));
- 
-app.use(express.json());
-app.use(cors()); 
+const bootstrap = async (): Promise<void> => {
 
-app.listen(port, ()=>{ 
-    console.log('Servidor escuchando en el puerto ' + port); 
-})
+  await connectDatabase();
+
+
+  const employeeRepository =
+    new MongooseEmployeeRepository();
+
+
+  const employeeController =
+    new EmployeeController(
+      employeeRepository
+    );
+
+
+  const app =
+    createApp(
+      employeeController
+    );
+
+
+  const port =
+    Number(process.env.PORT) || 3000;
+
+
+  app.listen(
+    port,
+    () => {
+
+      console.log(
+        `🚀 API escuchando en http://localhost:${port}`
+      );
+    }
+  );
+};
+
+
+bootstrap();
