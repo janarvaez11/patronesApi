@@ -47,7 +47,9 @@ export const createApp = (
         'Servicio disponible',
         {
           service:
-            'employee-api'
+            'employee-api',
+          version:
+            '1.0.1'
         }
       );
     }
