@@ -1,0 +1,120 @@
+.list-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.list-heading h2 {
+  margin: 4px 0 0;
+  font-size: 1.35rem;
+}
+
+.eyebrow {
+  color: #667085;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.counter {
+  border-radius: 999px;
+  background: #f2f4f7;
+  color: #475467;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 7px 10px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+th,
+td {
+  border-bottom: 1px solid #eaecf0;
+  padding: 14px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  color: #667085;
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+td {
+  color: #344054;
+  font-size: 0.9rem;
+}
+
+td strong {
+  display: block;
+  color: #101828;
+}
+
+td small {
+  display: block;
+  color: #98a2b3;
+  font-size: 0.70rem;
+  margin-top: 3px;
+}
+
+.department {
+  display: inline-block;
+  border-radius: 999px;
+  background: #f2f4f7;
+  padding: 5px 9px;
+}
+
+.actions-column {
+  width: 150px;
+}
+
+.actions {
+  display: flex;
+  gap: 7px;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 8px 10px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.edit {
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.delete {
+  background: #fef3f2;
+  color: #b42318;
+}
+
+.empty-state {
+  border: 1px dashed #d0d5dd;
+  border-radius: 12px;
+  color: #667085;
+  padding: 42px 20px;
+  text-align: center;
+}

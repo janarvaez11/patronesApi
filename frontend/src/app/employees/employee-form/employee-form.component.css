@@ -1,0 +1,111 @@
+.form-panel {
+  position: sticky;
+  top: 24px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.panel-heading h2 {
+  margin: 4px 0 0;
+  font-size: 1.35rem;
+}
+
+.eyebrow {
+  color: #667085;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mode-badge {
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 7px 10px;
+}
+
+.mode-badge.editing {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+form {
+  display: grid;
+  gap: 16px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: #344054;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: #fff;
+  color: #101828;
+  font: inherit;
+  padding: 11px 12px;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+input:focus {
+  border-color: #475467;
+  box-shadow: 0 0 0 3px rgba(71, 84, 103, 0.10);
+}
+
+small {
+  color: #b42318;
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 11px 15px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.primary {
+  background: #101828;
+  color: #fff;
+}
+
+.secondary {
+  background: #f2f4f7;
+  color: #344054;
+}
+
+@media (max-width: 920px) {
+  .form-panel {
+    position: static;
+  }
+}

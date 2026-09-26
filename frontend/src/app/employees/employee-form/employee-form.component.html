@@ -1,0 +1,53 @@
+<section class="panel form-panel">
+  <div class="panel-heading">
+    <div>
+      <span class="eyebrow">Formulario</span>
+      <h2>{{ isEditMode ? 'Editar empleado' : 'Nuevo empleado' }}</h2>
+    </div>
+    <span class="mode-badge" [class.editing]="isEditMode">
+      {{ isEditMode ? 'Edición' : 'Creación' }}
+    </span>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <label>
+      <span>Nombre</span>
+      <input formControlName="nombre" placeholder="Ej. Jilson Narváez" />
+      <small *ngIf="hasError('nombre')">Ingrese al menos 2 caracteres.</small>
+    </label>
+
+    <label>
+      <span>Cargo</span>
+      <input formControlName="cargo" placeholder="Ej. Arquitecto de Software" />
+      <small *ngIf="hasError('cargo')">Ingrese un cargo válido.</small>
+    </label>
+
+    <label>
+      <span>Departamento</span>
+      <input formControlName="departamento" placeholder="Ej. Tecnología" />
+      <small *ngIf="hasError('departamento')">Ingrese un departamento válido.</small>
+    </label>
+
+    <label>
+      <span>Sueldo</span>
+      <input type="number" min="0" step="0.01" formControlName="sueldo" />
+      <small *ngIf="hasError('sueldo')">El sueldo no puede ser negativo.</small>
+    </label>
+
+    <div class="form-actions">
+      <button type="submit" class="primary" [disabled]="disabled">
+        {{ isEditMode ? 'Guardar cambios' : 'Crear empleado' }}
+      </button>
+
+      <button
+        *ngIf="isEditMode"
+        type="button"
+        class="secondary"
+        [disabled]="disabled"
+        (click)="cancelEdit()"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,71 @@
+<main class="page-shell">
+  <header class="hero">
+    <div>
+      <span class="hero-kicker">
+        Patrones de Diseño de APIs · Angular
+      </span>
+
+      <h1>
+        Gestión de empleados
+      </h1>
+
+      <p>
+        Frontend desacoplado por componentes, con estado reactivo RxJS y consumo del backend Express.
+      </p>
+    </div>
+
+    <button
+      type="button"
+      class="refresh"
+      (click)="refresh()"
+      [disabled]="(loading$ | async) ?? false"
+    >
+      Actualizar datos
+    </button>
+  </header>
+
+
+  <div
+    *ngIf="error$ | async as error"
+    class="alert error"
+  >
+    <strong>Error:</strong>
+    {{ error }}
+  </div>
+
+
+  <div
+    *ngIf="successMessage"
+    class="alert success"
+  >
+    {{ successMessage }}
+  </div>
+
+
+  <div class="layout">
+
+    <app-employee-form
+      [employee]="selectedEmployee"
+      [disabled]="(loading$ | async) ?? false"
+      (save)="saveEmployee($event)"
+      (cancel)="cancelEdit()"
+    />
+
+
+    <app-employee-list
+      [employees]="(employees$ | async) ?? []"
+      [disabled]="(loading$ | async) ?? false"
+      (edit)="editEmployee($event)"
+      (remove)="deleteEmployee($event)"
+    />
+
+  </div>
+
+
+  <div
+    *ngIf="loading$ | async"
+    class="loading-bar"
+  >
+    Procesando solicitud...
+  </div>
+</main>

@@ -1,0 +1,46 @@
+<section class="panel list-panel">
+  <div class="list-heading">
+    <div>
+      <span class="eyebrow">Directorio</span>
+      <h2>Empleados</h2>
+    </div>
+    <span class="counter">{{ employees.length }} registros</span>
+  </div>
+
+  <div *ngIf="employees.length === 0" class="empty-state">
+    No existen empleados registrados todavía.
+  </div>
+
+  <div *ngIf="employees.length > 0" class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Empleado</th>
+          <th>Cargo</th>
+          <th>Departamento</th>
+          <th>Sueldo</th>
+          <th class="actions-column">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees; trackBy: trackById">
+          <td>
+            <strong>{{ employee.nombre }}</strong>
+            <small>{{ employee.id }}</small>
+          </td>
+          <td>{{ employee.cargo }}</td>
+          <td><span class="department">{{ employee.departamento }}</span></td>
+          <td>{{ employee.sueldo | currency:'USD':'symbol':'1.2-2' }}</td>
+          <td class="actions">
+            <button type="button" class="edit" [disabled]="disabled" (click)="edit.emit(employee)">
+              Editar
+            </button>
+            <button type="button" class="delete" [disabled]="disabled" (click)="remove.emit(employee.id)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
